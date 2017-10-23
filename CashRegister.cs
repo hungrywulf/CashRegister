@@ -9,19 +9,32 @@ namespace CashRegister
 
         static void Main(string[] args) {
 
-            List<string> items = csvToArrayS(0, "test.csv");
-            List<double> price = csvToArrayD(1, "test.csv");
-            List<int> stock = csvToArrayI(2, "test.csv");
+            List<string> alcoholItems = csvToArrayS(0, "alcohol.csv");
+            List<double> alcoholPrice = csvToArrayD(1, "alcohol.csv");
+            List<int> alcoholStock = csvToArrayI(2, "alcohol.csv");
 
-            foreach (var i in items) {
+            List<string> beveragesItems = csvToArrayS(0, "beverages.csv");
+            List<double> beveragesPrice = csvToArrayD(1, "beverages.csv");
+            List<int> beveragesStock = csvToArrayI(2, "beverages.csv");
+
+            List<string> foodItems = csvToArrayS(0, "food.csv");
+            List<double> foodPrice = csvToArrayD(1, "food.csv");
+            List<int> foodStock = csvToArrayI(2, "food.csv");
+
+            List<string> snacksItems = csvToArrayS(0, "snacks.csv");
+            List<double> snacksPrice = csvToArrayD(1, "snacks.csv");
+            List<int> snacksStock = csvToArrayI(2, "snacks.csv");
+
+            // Testings
+            foreach (var i in alcoholItems) {
                 Console.WriteLine(i);
             }
             Console.WriteLine();
-            foreach (var i in price) {
+            foreach (var i in beveragesPrice) {
                 Console.WriteLine(i);
             }
             Console.WriteLine();
-            foreach (var i in stock) {
+            foreach (var i in foodStock) {
                 Console.WriteLine(i);
             }
         }
