@@ -9,7 +9,7 @@ class CashRegister {
 
         bool finished = false;
         string input;
-        double totalCost = 0; // amount customer cwes
+        double totalCost = 0;
 
         List<string> alcoholItems = CSVListS(0, "alcohol.csv");
         List<double> alcoholPrice = CSVListD(1, "alcohol.csv");
@@ -64,16 +64,6 @@ class CashRegister {
                 Console.WriteLine("\nError: enter an integer 1 - 5.\n");
             }
         }
-    }
-
-    public static double Cost(double price)
-    {
-        return price;
-    }
-
-    public static double Cost(int amountOfItems, double price)
-    {
-        return amountOfItems * price;
     }
 
     public static List<int> CSVListI (int column, string fileLocation) {
@@ -168,7 +158,7 @@ class CashRegister {
 
             if (item == count) {
 
-                cost += Cost(amountOfItems, price[count - 1]);
+                cost += amountOfItems * price[count - 1];
                 stock[item - 1] -= amountOfItems;
 
                 if (stock[item - 1] <= 0) {
