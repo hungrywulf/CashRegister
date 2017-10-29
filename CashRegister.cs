@@ -40,8 +40,9 @@ class CashRegister {
             input = Console.ReadLine();
 
             if (input == "1") {
-
+                Console.WriteLine(alcoholStock[0]);
                 catalog(ref totalCost, ref alcoholItems, ref alcoholPrice, ref alcoholStock);
+                Console.WriteLine(alcoholStock[0]);
             }
 
             if (input == "2") {
@@ -153,8 +154,10 @@ class CashRegister {
                         int amountOfItems;
                         Int32.TryParse(option[1], out amountOfItems);
                         cost += Cost(amountOfItems, price[count - 1]);
+                        stock[Int32.Parse(option[0]) - 1] -= amountOfItems;
                     } else if (option.Length == 1) {
                         cost += Cost(price[count - 1]);
+                        stock[Int32.Parse(option[0]) - 1]--;
                     } else {
                         Console.WriteLine("\nError in input is too long or short\n");
                     }
