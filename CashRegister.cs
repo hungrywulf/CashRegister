@@ -40,9 +40,8 @@ class CashRegister {
             input = Console.ReadLine();
 
             if (input == "1") {
-                Console.WriteLine(alcoholStock[0]);
+                
                 catalog(ref totalCost, ref alcoholItems, ref alcoholPrice, ref alcoholStock);
-                Console.WriteLine(alcoholStock[0]);
             }
 
             if (input == "2") {
