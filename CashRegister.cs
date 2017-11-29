@@ -63,9 +63,9 @@ class CashRegister {
             if (input1 == "5") {
 
                 while (finishedM == false) {
-                    Console.WriteLine("1) Empty Checkout\n2) Modify the Stock of an item\n3) Modify the price of an item\n4) Add an item\n5) Exit Manager Functions");
+                    Console.WriteLine("1) Empty Checkout\n2) Modify the Stock of an item\n3) Modify the price of an item\n4) Add an item\n5) Delete an item\n6) Exit Manager Functions");
                     input2 = Console.ReadLine();
-                    if (input2 != "1" && input2 != "2" && input2 != "3" && input2 != "4" && input2 != "5") {
+                    if (input2 != "1" && input2 != "2" && input2 != "3" && input2 != "4" && input2 != "5" && input2 != "6") {
                         Console.WriteLine("\nError: enter an integer 1 - 5.\n");
                         continue;
                     }
@@ -77,7 +77,7 @@ class CashRegister {
                         totalCost = 0;
                         continue;
                     }
-                    if (input2 == "5") {
+                    if (input2 == "6") {
                         finishedM = true;
                         continue;
                     }
@@ -336,6 +336,29 @@ class CashRegister {
             else {
                 Console.WriteLine("Incorrect Input");
             }
+        }
+        if (inputC == "5") {
+            Console.WriteLine("Which item do you want to delete?");
+            foreach (var i in items) {
+                Console.WriteLine("{0}) {1}", count, i);
+                count++;
+            }
+            Console.WriteLine();
+            input = Console.ReadLine();
+            success3 = Int32.TryParse(input, out item);
+            if (success3 == false) {
+                Console.WriteLine("Error: Enter an integer");
+                return;
+            }
+            for (count = 1; count <= items.Count(); count++) {
+                if (item == count) {
+                    items.RemoveAt(item - 1);
+                    price.RemoveAt(item - 1);
+                    stock.RemoveAt(item - 1);
+                    Console.WriteLine("Item has been deleted");
+                }
+            }
+            return;
         }
     }
     public static void SaveFile(List<string> item, List<double> price, List<int> stock, String fileLocation) {
